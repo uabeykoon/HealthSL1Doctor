@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/finddoc" android:title="Find Doctor"/>
+    <item android:id="@+id/doctor" android:title="Doctor"/>
+    <item android:id="@+id/mychannaling" android:title="My Channaling"/>
+
+</menu>

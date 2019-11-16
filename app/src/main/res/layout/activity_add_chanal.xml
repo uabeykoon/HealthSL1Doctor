@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddChanal"
+
+    android:orientation="vertical">
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select your Doctor :"
+        android:textSize="18dp"
+        android:textColor="#000000"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_height="50dp"
+        android:background="@drawable/field_style"
+
+        android:id="@+id/doctorSpinner"
+        >
+    </Spinner>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time Duration of Channal :"
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:textColor="#000000"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+
+
+        >
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/field_style"
+            android:gravity="center"
+            android:hint="Start Time"
+            android:inputType="textEmailAddress"
+
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:id="@+id/startTime"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="To"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/field_style"
+            android:gravity="center"
+            android:hint="End Time"
+            android:inputType="textEmailAddress"
+
+            android:layout_marginTop="15dp"
+
+            android:layout_weight="1"
+            android:id="@+id/endTime"/>
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:background="@drawable/field_style"
+        android:layout_height="50dp"
+        android:id="@+id/maxPatient"
+        android:layout_marginTop="40dp"
+        android:hint="Max Number of Patients"
+        android:gravity="center"
+        android:inputType="number"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Make channal"
+
+        android:textColor="@color/white"
+        android:background="@drawable/button_style"
+        android:layout_marginTop="40dp"
+        android:id="@+id/add1Chanal"/>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
