@@ -254,8 +254,7 @@ public class AddChanal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                // name = doctorsNameSpinner.getSelectedItem().toString();
-                //Toast.makeText(AddChanal.this,selectedDayOfWeek,Toast.LENGTH_LONG).show();
-                Toast.makeText(AddChanal.this,name,Toast.LENGTH_LONG).show();
+
 
 
                 maxPatients = maxp.getText().toString();
