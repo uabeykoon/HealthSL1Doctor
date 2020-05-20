@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                             Toast.makeText(MainActivity.this,userID, Toast.LENGTH_LONG).show();
-                            String ad = "nLeRlww7i0Y6vDDZM7GOho7NcLx1";
+                            String ad = "AxIINakrs6QPC47imI4x8P7rFop2";
 
 
                 //choose is the user an admin

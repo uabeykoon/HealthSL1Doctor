@@ -39,7 +39,7 @@ public class ChanalList extends ArrayAdapter<Chanalling> {
             //textView4.setText(chanalling.getChanallingId());
             textView1.setText("Start Time       -  "+chanalling.getStartTime());
             textView2.setText("End Time         -  "+chanalling.getEndTime());
-            textView3.setText("Maximum Patients -  "+chanalling.getMaxPtients());
+            textView3.setText("Maximum Patients -  "+chanalling.getMaxPatients());
             textView5.setText("Dr."+chanalling.getDoctorName());
 
 

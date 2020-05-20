@@ -61,6 +61,7 @@ public class ChanallingBase extends AppCompatActivity {
 
                     final Intent intent= getIntent();
                     dayOfWeek = intent.getStringExtra("day");
+                    //Toast.makeText(ChanallingBase.this,dayOfWeek,Toast.LENGTH_LONG).show();
 
         Calendar calendar= Calendar.getInstance();
         SimpleDateFormat msimpleDateFormat=new SimpleDateFormat("EEEE");
@@ -122,6 +123,7 @@ public class ChanallingBase extends AppCompatActivity {
          //open new activity to add chanal
                 Intent intent1 = new Intent(ChanallingBase.this,AddChanal.class);
                 intent1.putExtra("day",dayOfWeek);
+                //intent1.putExtra("daynum",selectedDayOfWeek);
                 startActivity(intent1);
 
 
@@ -149,6 +151,7 @@ public class ChanallingBase extends AppCompatActivity {
                 intent1.putExtra("chanallingId",chanallingId);
                 intent1.putExtra("selectedDayOfWeek",selectedDayOfWeek);
                 intent1.putExtra("day",position);
+                intent1.putExtra("daynum",dayOfWeek);
                 startActivity(intent1);
 
 

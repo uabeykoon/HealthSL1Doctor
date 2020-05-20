@@ -5,7 +5,7 @@ public class Chanalling {
     String chanallingId;
     String startTime;
     String endTime;
-    String maxPtients;
+    String maxPatients;
     String doctorID;
     String doctorName;
     String selectedDayOfWeek;
@@ -15,14 +15,14 @@ public class Chanalling {
 
         }
 
-        public Chanalling(String chanallingId,String selectedDayOfWeek,String doctorID,String doctorName, String startTime,String endTime,String maxPtient){
+        public Chanalling(String chanallingId,String selectedDayOfWeek,String doctorID,String doctorName, String startTime,String endTime,String maxPatients){
             this.chanallingId=chanallingId;
             this.startTime=startTime;
             this.endTime=endTime;
-            this.maxPtients=maxPtients;
             this.doctorID=doctorID;
             this.doctorName=doctorName;
             this.selectedDayOfWeek = selectedDayOfWeek;
+            this.maxPatients = maxPatients;
 
 
         }
@@ -45,6 +45,20 @@ public class Chanalling {
         return chanallingId;
     }
 
+    @Override
+    public String toString() {
+        return "Chanalling{" +
+                "chanallingId='" + chanallingId + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", maxPatients='" + maxPatients + '\'' +
+                ", doctorID='" + doctorID + '\'' +
+                ", doctorName='" + doctorName + '\'' +
+                ", selectedDayOfWeek='" + selectedDayOfWeek + '\'' +
+                ", specification='" + specification + '\'' +
+                '}';
+    }
+
     public String getStartTime() {
         return startTime;
     }
@@ -53,7 +67,9 @@ public class Chanalling {
         return endTime;
     }
 
-    public String getMaxPtients() {
-        return maxPtients;
+    public String getMaxPatients() {
+        return maxPatients;
     }
+
+
 }

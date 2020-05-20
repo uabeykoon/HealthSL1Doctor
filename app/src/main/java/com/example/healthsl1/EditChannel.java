@@ -20,8 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class EditChannel extends AppCompatActivity {
@@ -70,7 +73,7 @@ public class EditChannel extends AppCompatActivity {
         Intent intent= getIntent();
         day = intent.getStringExtra("selectedDayOfWeek");
         chanalingId=intent.getStringExtra("chanallingId");
-        dayNumber=intent.getStringExtra("day");
+        dayNumber=intent.getStringExtra("daynum");
 
 
         startTime = (EditText) findViewById(R.id.startTime2);
@@ -88,7 +91,7 @@ public class EditChannel extends AppCompatActivity {
                 String doctor1 = dataSnapshot.child("doctorName").getValue().toString();
                 startTime1 = dataSnapshot.child("startTime").getValue().toString();
                 endTime1 = dataSnapshot.child("endTime").getValue().toString();
-                maxPatient1 = dataSnapshot.child("maxPtients").getValue().toString();
+                maxPatient1 = dataSnapshot.child("maxPatients").getValue().toString();
 
                 startTime.setText(startTime1);
                 endtTime.setText(endTime1);
@@ -289,17 +292,36 @@ public class EditChannel extends AppCompatActivity {
             public void onClick(View v) {
                 // name = doctorsNameSpinner.getSelectedItem().toString();
                 //Toast.makeText(AddChanal.this,selectedDayOfWeek,Toast.LENGTH_LONG).show();
-                Toast.makeText(EditChannel.this,name,Toast.LENGTH_LONG).show();
+                //Toast.makeText(EditChannel.this,name,Toast.LENGTH_LONG).show();
 
-
+                String startTimeNew;
+                String endTimeNew;
                 maxPatients = maxp.getText().toString();
+
+
+                if (selectedStartHour==0){
+                   startTimeNew = startTime.getText().toString();
+                }
+                else {
+                    startTimeNew=selectedStartHour+"."+selectedStartMinute;
+                }
+
+
+                if (selectedEndHour==0){
+                    endTimeNew = endtTime.getText().toString();
+                }
+                else {
+                    endTimeNew=selectedEndHour+"."+selectedEndMinute;
+                }
+
+
 
 
                 //get database reference to send data
 
                 databaseReference = FirebaseDatabase.getInstance().getReference("Channaling").child(day);
 
-                Chanalling chanalling = new Chanalling(chanalingId,selectedDayOfWeek,doctorID,doctorName,selectedStartHour+"."+selectedStartMinute,selectedEndHour+"."+selectedEndMinute,maxPatients);
+                Chanalling chanalling = new Chanalling(chanalingId,day,doctorID,doctorName,startTimeNew,endTimeNew,maxPatients);
                 databaseReference.child(chanalingId).setValue(chanalling);
                 //mapping data before send
                         /*Map sendData = new HashMap();
@@ -312,14 +334,15 @@ public class EditChannel extends AppCompatActivity {
                 //send values to database
 
                 //databaseReference.child(id).setValue(sendData);
-                finish();
+                //finish();
 
                 Intent intent2 = new Intent(EditChannel.this,ChanallingBase.class);
                 intent2.putExtra("day",dayNumber);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
-
-                Toast.makeText(EditChannel.this,selectedDayOfWeek,Toast.LENGTH_LONG).show();
+                //Toast.makeText(EditChannel.this,chanalingId,Toast.LENGTH_LONG).show();
+                Toast.makeText(EditChannel.this,dayNumber,Toast.LENGTH_LONG).show();
+                //Toast.makeText(EditChannel.this,chanalling.toString(),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -328,16 +351,18 @@ public class EditChannel extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference databaseReference5 = FirebaseDatabase.getInstance().getReference("Channaling").child(day).child(chanalingId);
-                databaseReference5.removeValue();
+                DatabaseReference databaseReference5 = FirebaseDatabase.getInstance().getReference("Channaling").child(day);
+                databaseReference5.child(chanalingId).removeValue();
 
-                finish();
+
 
                 Intent intent1 = new Intent(EditChannel.this,ChanallingBase.class);
                 intent1.putExtra("day",dayNumber);
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
                 startActivity(intent1);
+                finish();
+
+
             }
         });
 
@@ -397,7 +422,7 @@ public class EditChannel extends AppCompatActivity {
         doctorID = doctors.getDoctorID().toString();
         doctorName = doctors.getFirstName().toString() +" "+ doctors.getLastName().toString();
 
-        Toast.makeText(EditChannel.this,name,Toast.LENGTH_LONG).show();
+        //Toast.makeText(EditChannel.this,name,Toast.LENGTH_LONG).show();
     }
 
 }

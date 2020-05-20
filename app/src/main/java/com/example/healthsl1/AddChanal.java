@@ -267,6 +267,7 @@ public class AddChanal extends AppCompatActivity {
                 String id = databaseReference.push().getKey();
 
                 Chanalling chanalling = new Chanalling(id,selectedDayOfWeek,doctorID,doctorName,selectedStartHour+"."+selectedStartMinute,selectedEndHour+"."+selectedEndMinute,maxPatients);
+                //Chanalling testing = new Chanalling("1","2","3","4","5"+"."+"6","7"+"."+"8","9");
                 databaseReference.child(id).setValue(chanalling);
                 //mapping data before send
                         /*Map sendData = new HashMap();
@@ -286,7 +287,7 @@ public class AddChanal extends AppCompatActivity {
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent1);
 
-                Toast.makeText(AddChanal.this,selectedDayOfWeek,Toast.LENGTH_LONG).show();
+                Toast.makeText(AddChanal.this,chanalling.toString(),Toast.LENGTH_LONG).show();
             }
         });
 
