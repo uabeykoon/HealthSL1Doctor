@@ -287,7 +287,7 @@ public class AddChanal extends AppCompatActivity {
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent1);
 
-                //Toast.makeText(AddChanal.this,chanalling.toString(),Toast.LENGTH_LONG).show();
+
             }
         });
 
